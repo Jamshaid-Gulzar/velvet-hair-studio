@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Hair Studio · Before & After</title>
+<meta name="description" content="Website redesign of Velvet Hair Studio, a sample salon site: the original and the redesign side by side.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --cream: #fbf5f1; --blush: #f6e2e6; --plum: #3d1436; --plum-2: #6b2a5f; --orange: #f26b2a; --ease: cubic-bezier(.22, 1, .36, 1); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; font-family: "Inter", system-ui, sans-serif; background: var(--cream); color: var(--plum); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; }
+  .eyebrow { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: #9a6b90; }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: clamp(44px, 7vw, 88px); line-height: 1; margin: 16px 0 14px; text-align: center; }
+  h1 em { color: var(--plum-2); }
+  p.sub { color: #7a6176; text-align: center; max-width: 460px; }
+  .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 22px; margin-top: 50px; width: 100%; justify-content: center; }
+  a.card { position: relative; display: block; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 5; color: #fff; text-decoration: none; background: var(--blush); box-shadow: 0 30px 60px -30px rgba(61,20,54,.5); }
+  a.card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  a.card:hover img { transform: scale(1.06); }
+  a.card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(31,12,28,.8)); }
+  a.card .lbl { position: absolute; left: 26px; right: 26px; bottom: 24px; z-index: 1; }
+  a.card small { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .8; }
+  a.card b { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; margin: 4px 0 6px; }
+  a.card span { font-size: 14px; opacity: .85; }
+  a.card.after b::after { content: " →"; color: var(--orange); }
+  a.card.before img { filter: grayscale(.6) brightness(.9); }
+  footer { margin-top: 50px; font-size: 13px; color: #9a8496; }
+  @media (max-width: 640px) { .cards { grid-template-columns: 1fr; max-width: 360px; } }
+</style>
+</head>
+<body>
+  <span class="eyebrow">Website redesign</span>
+  <h1>Velvet Hair <em>Studio</em></h1>
+  <p class="sub">A sample salon website, before and after. The original had nowhere to book. The redesign puts Book now everywhere it matters.</p>
+  <div class="cards">
+    <a class="card before" href="before/">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=75" alt="">
+      <div class="lbl"><small>Before</small><b>The original</b><span>Simple layout, no book button</span></div>
+    </a>
+    <a class="card after" href="after/">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=75" alt="">
+      <div class="lbl"><small>After</small><b>The redesign</b><span>Animated, with Book now everywhere</span></div>
+    </a>
+  </div>
+  <footer>Velvet Hair Studio is a sample site</footer>
+</body>
+</html>

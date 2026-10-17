@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Hair Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Lato", Arial, sans-serif; color: #4b3347; background: #fff; line-height: 1.7; font-size: 16px; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: #7a3b6e; text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; color: #5a2350; margin: 0; }
+  .title { text-align: center; margin-bottom: 40px; }
+  .title h2 { font-size: 36px; }
+  .title .line { width: 60px; height: 2px; background: #d8a3b6; margin: 14px auto 0; }
+  .title p { color: #8a7186; margin: 12px 0 0; }
+
+  /* top bar + header */
+  .topbar { background: #5a2350; color: #eed3dc; font-size: 13px; padding: 8px 0; }
+  .topbar .wrap { display: flex; justify-content: space-between; }
+  header { background: #fff; border-bottom: 1px solid #eedde3; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .logo { font-family: "Playfair Display", Georgia, serif; font-size: 28px; color: #5a2350; }
+  .logo i { color: #b0668f; }
+  nav a { margin-left: 30px; color: #5a2350; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; }
+  nav a:hover { color: #b0668f; }
+
+  /* hero */
+  .hero { position: relative; height: 560px; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(90, 35, 80, .35); }
+  .hero .txt { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 20px; }
+  .hero h1 { color: #fff; font-size: 58px; font-style: italic; }
+  .hero p { font-size: 19px; font-weight: 300; margin: 12px 0 0; max-width: 520px; }
+
+  section { padding: 80px 0; }
+  .pink { background: #fbeff2; }
+
+  /* about */
+  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .about .pic { height: 380px; }
+  .about h2 { font-size: 34px; margin-bottom: 18px; }
+  .about p { color: #6b5167; }
+
+  /* services */
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .svc { background: #fff; text-align: center; padding-bottom: 26px; border: 1px solid #f0dfe5; }
+  .svc .pic { height: 220px; }
+  .svc h3 { font-size: 22px; margin: 22px 0 8px; }
+  .svc p { margin: 0 20px; font-size: 15px; color: #7a6176; }
+
+  /* gallery */
+  .gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .gal div { height: 240px; }
+
+  /* prices */
+  .price-box { max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid #f0dfe5; padding: 30px 40px; }
+  .price-box h3 { font-size: 22px; margin: 10px 0 10px; color: #b0668f; }
+  .pr { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dotted #dcc3cd; }
+  .pr:last-child { border: 0; }
+  .note { text-align: center; font-size: 14px; color: #8a7186; margin-top: 20px; }
+
+  /* testimonials */
+  .testi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .t { text-align: center; padding: 10px 20px; }
+  .t .av { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; }
+  .t p { font-style: italic; color: #6b5167; font-size: 15px; }
+  .t b { color: #5a2350; font-weight: 700; font-size: 14px; }
+
+  /* find us */
+  .find .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .find h3 { font-size: 24px; margin-bottom: 14px; }
+  .find table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .find td { padding: 6px 0; border-bottom: 1px solid #f0dfe5; }
+  .find td:last-child { text-align: right; }
+  .find .pic { height: 300px; }
+
+  footer { background: #3f1838; color: #d6bccb; padding: 50px 0 20px; font-size: 14px; }
+  .foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+  footer h4 { color: #fff; font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 18px; margin: 0 0 12px; }
+  footer a { color: #d6bccb; display: block; margin-bottom: 6px; }
+  .copy { border-top: 1px solid rgba(255,255,255,.12); margin-top: 30px; padding-top: 18px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 800px) {
+    nav { display: none; }
+    .hero { height: 420px; } .hero h1 { font-size: 40px; }
+    .about .wrap, .find .wrap { grid-template-columns: 1fr; }
+    .svc-grid, .testi { grid-template-columns: 1fr; }
+    .gal { grid-template-columns: repeat(2, 1fr); }
+    .foot { grid-template-columns: 1fr; }
+    .topbar .wrap { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap"><span>14 Linden Row, Bristol</span><span>Tue to Sat · 9am to 6pm</span></div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="logo">Velvet <i>Hair Studio</i></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#prices">Prices</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div data-img="hero" style="height:100%"></div>
+  <div class="txt">
+    <h1>Hair that feels like you</h1>
+    <p>A small, friendly hair studio in Bristol. Cuts, colour and styling for everyone.</p>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="pic" data-img="about"></div>
+    <div>
+      <h2>Welcome to Velvet</h2>
+      <p>Velvet Hair Studio opened in 2016. We are a small team of experienced stylists who love what we do.</p>
+      <p>We use quality vegan products and always take time to listen to what you want. Our studio is a relaxed space where you can sit back and enjoy a cup of tea while we look after your hair.</p>
+      <p>We look forward to seeing you soon.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="pink">
+  <div class="wrap">
+    <div class="title"><h2>Our Services</h2><div class="line"></div><p>Something for everyone</p></div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="title"><h2>Gallery</h2><div class="line"></div><p>Some of our recent work</p></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="prices" class="pink">
+  <div class="wrap">
+    <div class="title"><h2>Prices</h2><div class="line"></div></div>
+    <div class="price-box">
+      <h3>Cutting &amp; Colour</h3>
+      <div class="pr"><span>Cut &amp; blow dry</span><span>£45</span></div>
+      <div class="pr"><span>Colour</span><span>from £85</span></div>
+      <div class="pr"><span>Balayage</span><span>£140</span></div>
+      <div class="pr"><span>Fringe trim</span><span>£10</span></div>
+      <h3 style="margin-top:24px">Care &amp; Styling</h3>
+      <div class="pr"><span>Treatment</span><span>£25</span></div>
+      <div class="pr"><span>Blow dry</span><span>£30</span></div>
+      <div class="pr"><span>Occasion styling</span><span>from £55</span></div>
+    </div>
+    <p class="note">Prices may vary depending on hair length and thickness.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="title"><h2>What Our Clients Say</h2><div class="line"></div></div>
+    <div class="testi" id="testi"></div>
+  </div>
+</section>
+
+<section class="pink find">
+  <div class="wrap">
+    <div>
+      <h3>Find Us</h3>
+      <p>14 Linden Row<br>Bristol</p>
+      <h3 style="margin-top:24px">Opening Hours</h3>
+      <table>
+        <tr><td>Monday</td><td>Closed</td></tr>
+        <tr><td>Tuesday to Friday</td><td>9am to 6pm</td></tr>
+        <tr><td>Saturday</td><td>9am to 5pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div class="pic" data-img="find"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>Velvet Hair Studio</h4><p>Hair that feels like you.</p></div>
+      <div><h4>Links</h4><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#prices">Prices</a></div>
+      <div><h4>Follow Us</h4><a href="#">Facebook</a><a href="#">Instagram</a></div>
+    </div>
+    <div class="copy">&copy; 2026 Velvet Hair Studio (sample site). All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Photo IDs from images.unsplash.com/photo-<ID>
+const IMG = {
+  hero: '1560066984-138dadb4c035',
+  about: '1600948836101-f9ffda59d250',
+  find: '1582095133179-bfd08e2fc6b3',
+  services: ['1562322140-8baeececf3df', '1580618672591-eb180b1a973f', '1634449571010-02389ed0f9b0', '1527799820374-dcf8d9d4a388', '1516975080664-ed2fc6a32937', '1519699047748-de8e457a634e'],
+  gallery: ['1470259078422-826894b933aa', '1506863530036-1efeddceb993', '1457972729786-0411a3b2b626', '1492106087820-71f1a00d2b11', '1524504388940-b1c1722653e1', '1626954079979-ec4f7b05e032', '1487412947147-5cebf100ffc2', '1522337360788-8b13dee7a37e'],
+  avatars: ['1531123897727-8f129e1688ce', '1580489944761-15a19d654956', '1544005313-94ddf0286df2']
+};
+const src = (id, w) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
+const img = (id, w) => `<img src="${src(id, w)}" alt="">`;
+
+document.querySelectorAll('[data-img]').forEach(el => el.innerHTML = img(IMG[el.dataset.img], el.dataset.img === 'hero' ? 1800 : 800));
+
+const services = [
+  ['Cuts', 'Ladies and gents cuts and blow dries.'], ['Colour', 'Full and half head colour, roots and toners.'], ['Balayage', 'Hand painted highlights for a natural look.'],
+  ['Treatments', 'Conditioning treatments for healthy hair.'], ['Blow dries', 'Smooth or curly blow dries.'], ['Bridal', 'Wedding and occasion hair.']
+];
+document.getElementById('svcGrid').innerHTML = services.map((s, i) => `<div class="svc"><div class="pic">${img(IMG.services[i], 600)}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+document.getElementById('gal').innerHTML = IMG.gallery.map(id => `<div>${img(id, 500)}</div>`).join('');
+
+const testi = [['Lovely salon and friendly staff. Really happy with my colour.', 'Sophie R.'], ['Great cut, I always get compliments. Would recommend.', 'Hannah L.'], ['Relaxing atmosphere and they really listen.', 'Claire B.']];
+document.getElementById('testi').innerHTML = testi.map((t, i) => `<div class="t"><div class="av">${img(IMG.avatars[i], 160)}</div><p>"${t[0]}"</p><b>${t[1]}</b></div>`).join('');
+</script>
+</body>
+</html>
